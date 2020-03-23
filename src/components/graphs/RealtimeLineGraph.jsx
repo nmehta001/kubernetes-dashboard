@@ -1,50 +1,43 @@
 import React from "react";
 import * as d3 from "d3";
+import clsx from 'clsx';
 
-import styled from "styled-components";
-
+import Grid from '@material-ui/core/Grid'
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 
+import { useStyles } from '../../theme';
 import realtimeLineGraph from "../../utils/lineGraph";
 
-const Chart = styled.div`
-  max-width: 600px;
-  max-height: 400px;
-  position: relative;
 
-  .line {
-    fill: none;
-    stroke: #ffab00;
-    stroke-width: 3;
-  }
-  
-  .overlay {
-    fill: none;
-    pointer-events: all;
-  }
+const RealtimeLineGraph = (props) => {
+  const classes = useStyles();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  /* Style the dots by assigning a fill and stroke */
-  .dot {
-    fill: #ffab00;
-    stroke: #fff;
-  }
-  
-  .focus circle {
-    fill: none;
-    stroke: steelblue;
-  }
-`;
-
-const RealtimeLineGraph = props => 
-  (
-    <Paper>
-      <Card>
-        {/* <Chart id="chart">
+  return (
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={12} lg={6}>
+        <Paper className={fixedHeightPaper}>
           { realtimeLineGraph() }
-        </Chart> */}
-      </Card>
-    </Paper>
+        </Paper>
+      </Grid>
+      <Grid item xs={12} md={12} lg={6}>
+        <Paper className={fixedHeightPaper}>
+          { realtimeLineGraph() }
+        </Paper>
+      </Grid>
+      <Grid item xs={12} md={12} lg={6}>
+        <Paper className={fixedHeightPaper}>
+          { realtimeLineGraph() }
+        </Paper>
+      </Grid>
+      <Grid item xs={12} md={12} lg={6}>
+        <Paper className={fixedHeightPaper}>
+          { realtimeLineGraph() }
+        </Paper>
+      </Grid>
+    </Grid>
   );
+};
 
 export default RealtimeLineGraph;
