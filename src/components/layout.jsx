@@ -1,6 +1,6 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { MuiThemeProvider } from "@material-ui/core/styles"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import Navigation from "../blocks/Navigation";
 import theme, { GlobalStyle } from "../theme";
@@ -15,12 +15,11 @@ const Layout = ({ children }) => {
       <MuiThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <Navigation />
-          <main>{children}</main>
+          <Navigation children={children} />
         </>
       </MuiThemeProvider>
     </React.StrictMode>
-  )
-}
+  );
+};
 
 export default Layout;
